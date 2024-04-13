@@ -24,3 +24,35 @@ document.getElementById('check-availability').addEventListener('click', checkAva
 
 // Chamar a função inicialmente para exibir o status atual
 checkAvailability();
+
+// Função para exibir a página de login e ocultar a página de mapeamento
+function showLoginPage() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('parking-map').style.display = 'none';
+}
+
+// Função para exibir a página de mapeamento e ocultar a página de login
+function showMapPage() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('parking-map').style.display = 'block';
+}
+
+// Event listener para o formulário de login
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar o envio do formulário padrão
+
+    // Aqui você pode adicionar a lógica para verificar as credenciais de login
+    // Por exemplo, verificar se o nome de usuário e senha estão corretos
+
+    // Após verificar as credenciais, você pode mostrar a página de mapeamento
+    showMapPage();
+});
+
+// Event listener para o botão de logout
+document.getElementById('logout').addEventListener('click', function() {
+    // Voltar para a página de login ao clicar em Logout
+    showLoginPage();
+});
+
+// Exibir a página de login inicialmente
+showLoginPage();
